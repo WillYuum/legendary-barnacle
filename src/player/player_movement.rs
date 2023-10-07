@@ -1,25 +1,4 @@
-use bevy::{
-    prelude::{
-        AssetServer, Camera2dBundle, Commands, Component, Handle, Image, Query, Res, SpriteBundle,
-        Transform,
-    },
-    time::Time,
-};
-
-pub struct Player(u64);
-
-pub fn setup_sprite(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let player_texture: Handle<Image> = asset_server.load("../sprites/tile_0331.png");
-
-    commands.spawn((
-        SpriteBundle {
-            texture: player_texture,
-            transform: Transform::from_xyz(0.0, 0.0, 0.0),
-            ..Default::default()
-        },
-        Direction::Up,
-    ));
-}
+use bevy::prelude::*;
 
 #[derive(Component)]
 pub enum Direction {

@@ -1,11 +1,6 @@
 use bevy::{app::AppExit, prelude::*};
 
-// use player_displayer::setup_sprite;
-// mod ;
-// mod
-
-mod player;
-// mod player_displayer;
+pub mod player;
 
 fn main() {
     println!("Game Starting Up!");
@@ -16,6 +11,7 @@ fn main() {
         .add_plugins(DefaultPlugins)
         .add_systems(Startup, main_setup)
         .add_systems(Startup, player::player_renderer::setup_sprite)
+        .add_systems(Update, player::player_movement::sprite_movement)
         // .add_systems(Update, player_displayer::sprite_movement)
         .add_systems(Update, bevy::window::close_on_esc)
         .add_systems(Update, update)
